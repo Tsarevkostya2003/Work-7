@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/student/create" method="post" th:object="${studentModel}" novalidate>
+
+
+    <input type="text" name="name" placeholder="Имя">
+    <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></label>
+    <input type="email" name="email" placeholder="Почта" required>
+    <label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></label>
+
+    <input type="password" name="password" placeholder="Пароль" required>
+    <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></label>
+
+    <input type="text" name="personaDataModel.passportSeria" placeholder="серия паспорта" required>
+    <label th:if="${#fields.hasErrors('personaDataModel.passportSeria')}" th:errors="*{personaDataModel.passportSeria}">Серия не может быть пустой</label>
+
+    <input type="text" name="personaDataModel.passportNumber" placeholder="номер паспорта" required>
+    <label th:if="${#fields.hasErrors('personaDataModel.passportNumber')}" th:errors="*{personaDataModel.passportNumber}"></label>
+
+    <input type="text" name="personaDataModel.kod" placeholder="код" required>
+    <label th:if="${#fields.hasErrors('personaDataModel.kod')}" th:errors="*{personaDataModel.kod}"></label>
+
+    <input type="text" name="facultyModel.name" placeholder="Название факультета" required>
+    <label th:if="${#fields.hasErrors('facultyModel.name')}" th:errors="*{facultyModel.name}"></label>
+
+    <button type="submit">Добавление студента</button>
+</form>
+</body>
+</html>
